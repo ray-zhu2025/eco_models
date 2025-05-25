@@ -1,7 +1,7 @@
 # 1. 基于Transformer的模型
 [submodule "models/fengwu"]
 	path = models/fengwu
-	url = https://github.com/OpenEarthLab/FengWu.git
+	url = git@github.com:OpenEarthLab/FengWu.git
 [submodule "models/climax"]
 	path = models/climax
 	url = https://github.com/microsoft/ClimaX.git
