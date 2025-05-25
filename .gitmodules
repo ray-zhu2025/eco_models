@@ -1,0 +1,76 @@
+# 1. 基于Transformer的模型
+[submodule "models/fuxi"]
+	path = models/fuxi
+	url = https://github.com/tpys/FuXi.git
+[submodule "models/fengwu"]
+	path = models/fengwu
+	url = https://github.com/OpenEarthLab/FengWu.git
+[submodule "models/climax"]
+	path = models/climax
+	url = https://github.com/microsoft/ClimaX.git
+
+# 2. 基于图神经网络的模型
+[submodule "models/graphcast"]
+	path = models/graphcast
+	url = https://github.com/google-deepmind/graphcast.git
+[submodule "models/ai-goms"]
+	path = models/ai-goms
+	url = https://github.com/OpenEarthLab/AI-GOMS.git
+
+# 3. 基于物理约束的模型
+[submodule "models/fourcastnet"]
+	path = models/fourcastnet
+	url = https://github.com/NVlabs/FourCastNet.git
+[submodule "models/pangu-weather"]
+	path = models/pangu-weather
+	url = https://github.com/198808xc/Pangu-Weather.git
+[submodule "models/metnet"]
+	path = models/metnet
+	url = https://github.com/google-research/weather-forecasting.git
+
+# 4. 基于GAN的模型
+[submodule "models/nowcastnet"]
+	path = models/nowcastnet
+	url = https://github.com/OpenEarthLab/NowcastNet.git
+
+# 5. 传统数值模型
+[submodule "models/WRF"]
+	path = models/WRF
+	url = https://github.com/wrf-model/WRF.git
+[submodule "models/CMAQ"]
+	path = models/CMAQ
+	url = https://github.com/USEPA/CMAQ.git
+[submodule "models/SWAT"]
+	path = models/SWAT
+	url = https://github.com/WatershedModels/SWAT.git
+[submodule "models/modflow6"]
+	path = models/modflow6
+	url = https://github.com/MODFLOW-USGS/modflow6.git
+
+# 6. 深度学习模型
+[submodule "models/DeepRain"]
+	path = models/DeepRain
+	url = https://github.com/thgnaedi/DeepRain.git
+[submodule "models/deep-storm"]
+	path = models/deep-storm
+	url = https://github.com/EliasNehme/Deep-STORM.git
+[submodule "models/aurora"]
+	path = models/aurora
+	url = https://github.com/microsoft/aurora.git
+	branch = main
+
+# 7. 生态系统模型
+[submodule "models/invest"]
+	path = models/invest
+	url = https://github.com/natcap/invest.git
+
+# 8. 其他资源
+[submodule "models/deepmind-research"]
+	path = models/deepmind-research
+	url = https://github.com/deepmind/deepmind-research.git
+
+# 注意：以下仓库当前不可用，需要等待更新或联系作者获取代码
+# - models/metnet
+# - models/ai-goms
+# - models/nowcastnet
+# - models/ThinkComplexity2 (已弃用)
