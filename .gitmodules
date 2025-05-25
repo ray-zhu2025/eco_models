@@ -13,9 +13,6 @@
 [submodule "models/graphcast"]
 	path = models/graphcast
 	url = https://github.com/google-deepmind/graphcast.git
-[submodule "models/ai-goms"]
-	path = models/ai-goms
-	url = https://github.com/OpenEarthLab/AI-GOMS.git
 
 # 3. 基于物理约束的模型
 [submodule "models/fourcastnet"]
@@ -28,15 +25,7 @@
 	path = models/metnet
 	url = https://github.com/google-research/weather-forecasting.git
 
-# 4. 基于GAN的模型
-[submodule "models/nowcastnet"]
-	path = models/nowcastnet
-	url = https://github.com/OpenEarthLab/NowcastNet.git
-
-# 5. 传统数值模型
-[submodule "models/WRF"]
-	path = models/WRF
-	url = https://github.com/wrf-model/WRF.git
+# 4. 传统数值模型
 [submodule "models/CMAQ"]
 	path = models/CMAQ
 	url = https://github.com/USEPA/CMAQ.git
@@ -47,10 +36,7 @@
 	path = models/modflow6
 	url = https://github.com/MODFLOW-USGS/modflow6.git
 
-# 6. 深度学习模型
-[submodule "models/DeepRain"]
-	path = models/DeepRain
-	url = https://github.com/thgnaedi/DeepRain.git
+# 5. 深度学习模型
 [submodule "models/deep-storm"]
 	path = models/deep-storm
 	url = https://github.com/EliasNehme/Deep-STORM.git
@@ -59,12 +45,12 @@
 	url = https://github.com/microsoft/aurora.git
 	branch = main
 
-# 7. 生态系统模型
+# 6. 生态系统模型
 [submodule "models/invest"]
 	path = models/invest
 	url = https://github.com/natcap/invest.git
 
-# 8. 其他资源
+# 7. 其他资源
 [submodule "models/deepmind-research"]
 	path = models/deepmind-research
 	url = https://github.com/deepmind/deepmind-research.git
