@@ -1,7 +1,4 @@
 # 1. 基于Transformer的模型
-[submodule "models/fuxi"]
-	path = models/fuxi
-	url = https://github.com/tpys/FuXi.git
 [submodule "models/fengwu"]
 	path = models/fengwu
 	url = https://github.com/OpenEarthLab/FengWu.git
@@ -59,3 +56,6 @@
 # - models/metnet
 # - models/ai-goms
 # - models/nowcastnet
+[submodule "models/fuxi"]
+	path = models/fuxi
+	url = https://github.com/OpenEarthLab/Fuxi.git
