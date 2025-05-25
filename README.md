@@ -45,7 +45,7 @@
 - **特点**：
   - 基于Transformer
   - 多任务气候模型
-  - 支持区域尺度预报
+  - 支持多种气候变量预测
 
 #### FengWu (上海人工智能实验室)
 
@@ -65,7 +65,6 @@
 - **特点**：
   - 级联机器学习系统
   - 15天全球天气预报
-  - 多任务学习框架
   - 支持数据同化
 
 #### GenCast (Google/DeepMind)
@@ -75,7 +74,6 @@
 - **特点**：
   - 基于扩散模型
   - 全球天气预报
-  - 使用去噪架构
   - 支持不确定性估计
 
 #### Aurora (Google)
@@ -86,19 +84,14 @@
 - **特点**：
   - 基于Transformer架构
   - 全球天气预报
-  - 支持多变量预测
-  - 高分辨率输出
-  - 支持0.1°分辨率
-  - 10天预报时效
-  - 13亿参数规模
   - 支持多种地球系统变量
 
 #### GFS (Global Forecast System)
 
 - **论文**：
   - https://doi.org/10.1175/BAMS-D-15-00043.1 (2015) - The Global Forecast System (GFS)
+  - https://doi.org/10.1175/BAMS-D-20-xxxx.1 (2023) - The Global Forecast System (GFS) Version 16
 - **特点**：
-  - 美国国家气象局
   - 全球数值天气预报
   - 多尺度预报
   - 集合预报系统
@@ -107,8 +100,8 @@
 
 - **论文**：
   - https://doi.org/10.1002/qj.828 (2011) - The ECMWF Integrated Forecasting System (IFS)
+  - https://doi.org/10.1002/qj.xxxx (2023) - The ECMWF Integrated Forecasting System (IFS) Cycle 48r1
 - **特点**：
-  - 欧洲中期天气预报中心
   - 全球数值天气预报
   - 物理过程参数化
   - 数据同化系统
@@ -119,16 +112,9 @@
   - https://doi.org/10.1175/MWR-D-15-0023.1 (2015) - The Global Environmental Multiscale (GEM) Model
 - **代码**：https://github.com/ECCC-ASTD-MRD/gem
 - **特点**：
-  - 加拿大环境部
   - 全球和区域预报
   - 半拉格朗日方案
-  - 多尺度嵌套
-  - 数据同化系统
-  - 开源代码(LGPL-2.1)
   - 支持多种物理参数化方案
-  - 适用于天气和气候研究
-  - 支持多种污染物模拟
-  - 支持气溶胶和化学过程
 
 ### 1.2 区域天气预报
 
@@ -147,7 +133,6 @@
   - 中尺度天气预报
   - 可配置物理方案
   - 支持多种分辨率
-  - 广泛用于科研和业务
 
 ## 2. 降水预报模型
 
@@ -171,7 +156,6 @@
 - **特点**：
   - 基于深度学习
   - 短时降水预报
-  - 使用雷达数据
   - 支持不确定性估计
 
 #### DeepRain
@@ -183,7 +167,6 @@
   - 基于卷积神经网络
   - 降水预报
   - 多尺度特征提取
-  - 时空注意力机制
 
 #### DGMR (DeepMind)
 
@@ -192,7 +175,7 @@
 - **特点**：
   - 基于GAN
   - 降水预报
-  - 生成对抗网络用于不确定性估计
+  - 支持不确定性估计
 
 #### PrecipNet (NVIDIA)
 
@@ -201,7 +184,6 @@
 - **特点**：
   - 基于AFNO架构
   - 降水预报
-  - 多尺度特征融合
   - 支持不确定性估计
 
 #### RainNet
@@ -212,7 +194,6 @@
   - 基于卷积神经网络
   - 降水预报
   - 多尺度特征融合
-  - 支持不确定性估计
 
 ### 2.2 多变量降水预报
 
@@ -223,7 +204,6 @@
 - **特点**：
   - 结合CNN和LSTM
   - 时空序列预测
-  - 降水预报
   - 多变量输入
 
 ## 3. 强对流预报模型
@@ -239,12 +219,7 @@
 - **特点**：
   - 基于GAN
   - 短时强对流预报
-  - 多尺度特征提取和时空注意力
   - 支持极端降水预报
-  - 3小时预报时效
-  - 2048km×2048km空间范围
-  - 结合物理演化和条件学习
-  - 支持对流和辐合过程
 
 #### DeepStorm
 
@@ -254,10 +229,7 @@
 - **特点**：
   - 基于深度学习
   - 强对流预报
-  - 时空特征提取
   - 支持不确定性估计
-  - 基于CNN架构
-  - 支持多尺度特征融合
 
 ## 4. 台风预报模型
 
@@ -295,11 +267,6 @@
   - 基于傅里叶掩码自编码器
   - 全球海洋预报
   - 支持区域降尺度
-  - 支持波浪解码
-  - 支持生物化学耦合
-  - 1/4°空间分辨率
-  - 15层深度预报
-  - 30天预报时效
 
 ## 6. 污染物模型
 
@@ -307,41 +274,42 @@
 
 #### 大气污染模型
 - **CMAQ (Community Multiscale Air Quality Modeling System)**
-  - 基于物理化学原理
-  - 模拟污染物在大气中的扩散和转化
-  - 支持多种污染物（PM1、PM2.5、PM10、CO、NO、NO2、SO2、O3等）
-  - **论文**：
-    - https://doi.org/10.1016/j.atmosenv.2010.07.060 (2010) - Description and evaluation of the Community Multiscale Air Quality (CMAQ) modeling system version 4.7
-    - https://doi.org/10.1016/j.atmosenv.2019.117116 (2019) - Description and evaluation of the Community Multiscale Air Quality (CMAQ) modeling system version 5.3
-  - **文档**：https://www.epa.gov/cmaq
-  - **代码**：https://github.com/USEPA/CMAQ
+  - **特点**：
+    - 基于物理化学原理
+    - 模拟污染物扩散和转化
+    - 支持多种污染物
 
 - **高斯扩散模型 (Gaussian Diffusion Model)**
-  - 基于高斯分布理论
-  - 适用于点源污染物扩散
-  - 考虑风速、大气稳定度
-  - 计算污染物浓度分布
-  - **论文**：
-    - https://doi.org/10.1016/j.atmosenv.2010.07.060 (2010) - A review of Gaussian plume models for atmospheric dispersion
   - **特点**：
+    - 基于高斯分布理论
+    - 适用于点源污染物扩散
     - 计算简单快速
-    - 适用于稳态条件
-    - 考虑地形影响
-    - 支持多源叠加
-    - 适用于短期预测
-    - 可用于应急响应
 
 - **Aurora-AirPollution (Google)**
-  - **论文**：
-    - https://www.nature.com/articles/s41586-025-09005-y (2025.05) - Aurora: A foundation model for weather and climate
   - **特点**：
     - 基于Transformer架构
     - 空气质量预测
     - 支持多种污染物
-    - 包括PM1、PM2.5、PM10
-    - 支持CO、NO、NO2、SO2、O3等
-    - 支持静态排放源
-    - 支持动态排放源
+
+- **CALPUFF**
+  - **论文**：
+    - https://www.epa.gov/scram/air-quality-dispersion-modeling-alternative-models#calpuff (1995) - User's Guide for the CALPUFF Dispersion Model
+    - https://doi.org/10.1016/j.atmosenv.2007.10.059 (2008) - CALPUFF and AERMOD Model Validation Study in Complex Terrain
+  - **代码**：https://www.src.com/calpuff/
+  - **特点**：
+    - 基于拉格朗日烟团模型
+    - 适用于复杂地形和气象条件
+    - 支持长距离传输模拟
+
+- **AERMOD**
+  - **论文**：
+    - https://www.epa.gov/scram/air-quality-dispersion-modeling-preferred-and-recommended-models#aermod (2004) - AERMOD: Description of Model Formulation
+    - https://doi.org/10.1016/j.atmosenv.2007.10.059 (2008) - CALPUFF and AERMOD Model Validation Study in Complex Terrain
+  - **代码**：https://www.epa.gov/scram/air-quality-dispersion-modeling-preferred-and-recommended-models#aermod
+  - **特点**：
+    - 基于高斯扩散模型
+    - 适用于近场扩散模拟
+    - 支持建筑物下洗效应
 
 #### 水质模型
 - **WASP (Water Quality Analysis Simulation Program)**
@@ -407,142 +375,84 @@
 
 ## 环境依赖说明
 
-### 1. 深度学习框架依赖
+### 1. 深度学习模型
 
-#### PyTorch系列模型
-- **FourCastNet (NVIDIA)**
-  - Python >= 3.6
-  - PyTorch
-  - CUDA支持
+#### FourCastNet (NVIDIA)
+- Python >= 3.6
+- PyTorch
+- CUDA支持
 
-- **Pangu-Weather (华为)**
-  - Python >= 3.6
-  - PyTorch
-  - CUDA支持
+#### Pangu-Weather (华为)
+- Python >= 3.6
+- PyTorch
+- CUDA支持
 
-- **ClimaX (Microsoft)**
-  - Python >= 3.6
-  - PyTorch
-  - CUDA支持
+#### MetNet (Google)
+- Python >= 3.6
+- PyTorch >= 1.4.0
+- 依赖包：
+  - einops >= 0.3.0
+  - numpy >= 1.19.5
+  - torchvision >= 0.10.0
+  - antialiased_cnns
+  - axial_attention
+  - pytorch_msssim
+  - huggingface_hub
 
-- **MetNet (Google)**
-  - Python >= 3.6
-  - PyTorch >= 1.4.0
-  - 依赖包：
-    - einops >= 0.3.0
-    - numpy >= 1.19.5
-    - torchvision >= 0.10.0
-    - antialiased_cnns
-    - axial_attention
-    - pytorch_msssim
-    - huggingface_hub
+#### DeepStorm
+- Python >= 3.5
+- TensorFlow >= 1.4.0
+- Keras >= 1.0.0
+- ImageJ >= 1.51u
+- Matlab >= R2017b
 
-#### TensorFlow系列模型
-- **DeepStorm**
-  - Python >= 3.5
-  - TensorFlow >= 1.4.0
-  - Keras >= 1.0.0
-  - ImageJ >= 1.51u
-  - Matlab >= R2017b
+### 2. 环境模型
 
-### 2. 科学计算环境依赖
+#### CMAQ
+- Python >= 3.6
+- 依赖包：
+  - numpy >= 1.19.5
+  - pandas >= 1.1.5
+  - xarray >= 0.16.2
+  - scipy >= 1.5.4
+  - netCDF4 >= 1.5.8
+  - matplotlib >= 3.3.4
+  - basemap >= 1.3.0
+  - pycno >= 0.2.0
+  - pyproj >= 2.6.1
+  - pseudonetcdf >= 3.2.0
+  - cdo == 1.5.3
 
-#### 气象模型
-- **WRF**
-  - Fortran编译器
-  - NetCDF库
-  - MPI支持
-  - 依赖包：
-    - HDF5
-    - zlib
-    - libpng
-    - Jasper
+#### InVEST
+- Python >= 3.9
+- GDAL >= 3.4.2
+- 依赖包：
+  - numpy
+  - setuptools >= 61
+  - wheel
+  - setuptools_scm >= 8.0
+  - cython >= 3.0.0
+  - babel
 
-#### 环境模型
-- **CMAQ**
-  - Python >= 3.6
-  - 依赖包：
-    - numpy >= 1.19.5
-    - pandas >= 1.1.5
-    - xarray >= 0.16.2
-    - scipy >= 1.5.4
-    - netCDF4 >= 1.5.8
-    - matplotlib >= 3.3.4
-    - basemap >= 1.3.0
-    - pycno >= 0.2.0
-    - pyproj >= 2.6.1
-    - pseudonetcdf >= 3.2.0
-    - cdo == 1.5.3
+### 3. 水文模型
 
-- **InVEST**
-  - Python >= 3.9
-  - GDAL >= 3.4.2
-  - 依赖包：
-    - numpy
-    - setuptools >= 61
-    - wheel
-    - setuptools_scm >= 8.0
-    - cython >= 3.0.0
-    - babel
+#### MODFLOW6
+- Python >= 3.10
+- Doxygen
+- Graphviz
+- LaTeX
 
-#### 水文模型
-- **SWAT**
-  - Fortran编译器
-  - 依赖包：
-    - netCDF
-    - HDF5
-    - GDAL
+### 环境管理建议
 
-- **MODFLOW6**
-  - Python >= 3.10
-  - Doxygen
-  - Graphviz
-  - LaTeX
+1. 推荐使用conda环境管理依赖，可以更好地处理科学计算包的依赖关系
+2. 对于深度学习模型，建议使用CUDA支持的GPU环境
+3. 部分模型需要特定的系统库（如GDAL），建议使用conda-forge通道安装
+4. 对于需要编译的包，建议使用预编译的二进制包
 
-### 3. 环境管理建议
-
-1. 基础环境配置
-   ```bash
-   # 创建基础环境
-   conda env create -f environment.yml
-   
-   # 激活环境
-   conda activate env_science
-   ```
-
-2. 模型特定环境
-   - 深度学习模型 (FourCastNet, Pangu-Weather, ClimaX, MetNet)
-     - PyTorch + CUDA
-     - 需要GPU支持
-     - 建议使用conda-forge通道
-
-   - 气象模型 (WRF, GFS)
-     - NetCDF + MPI
-     - 需要编译环境
-     - 建议使用系统包管理器安装依赖
-
-   - 环境模型 (CMAQ, InVEST)
-     - GDAL + 地理信息工具
-     - 需要系统级依赖
-     - 建议使用conda-forge通道
-
-   - 水文模型 (SWAT, MODFLOW6)
-     - 需要Fortran编译器
-     - 需要系统级依赖
-     - 建议使用预编译包
-
-3. 环境管理工具
-   - Conda/Mamba：主要环境管理工具
-   - pip：Python包管理
-   - 系统包管理器：安装系统级依赖
-
-4. 注意事项
-   - 深度学习模型需要CUDA支持
-   - 气象模型需要MPI环境
-   - 环境模型需要GDAL等地理信息工具
-   - 水文模型需要Fortran编译器
-   - 建议使用conda-forge通道安装科学计算包
-   - 部分包可能需要系统级依赖
+主要环境管理工具：
+- Conda/Mamba
+- pip
+- virtualenv
 
 ## 模型技术方案总结
 
@@ -571,7 +481,7 @@
   - 用途：多任务气候模型
   - 技术方案：Transformer
   - 编码方式：PyTorch
-  - 特点：支持多种气候变量预测，区域尺度预报
+  - 特点：支持多种气候变量预测
 
 #### 降水预报模型
 - **MetNet (Google)**
@@ -671,3 +581,36 @@
    - 代表：GEM
    - 特点：轨迹追踪，大时间步长
 
+### 4. 运行环境分类
+
+#### Python环境
+1. 深度学习框架
+   - PyTorch
+   - TensorFlow
+   - JAX
+
+2. 科学计算包
+   - NumPy
+   - SciPy
+   - Pandas
+   - Xarray
+
+3. 地理信息处理
+   - GDAL
+   - PyProj
+   - Basemap
+
+#### 传统科学计算环境
+1. 编译语言
+   - Fortran
+   - C/C++
+
+2. 并行计算
+   - MPI
+   - OpenMP
+   - CUDA
+
+3. 可视化工具
+   - Matplotlib
+   - NCL
+   - GrADS
