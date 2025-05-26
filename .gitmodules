@@ -32,6 +32,9 @@
 [submodule "models/modflow6"]
 	path = models/modflow6
 	url = https://github.com/MODFLOW-USGS/modflow6.git
+[submodule "models/wrf"]
+	path = models/wrf
+	url = https://github.com/wrf-model/WRF.git
 
 # 5. 深度学习模型
 [submodule "models/deep-storm"]
