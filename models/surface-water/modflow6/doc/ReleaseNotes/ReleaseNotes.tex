@@ -1,0 +1,368 @@
+\documentclass[11pt,twoside,twocolumn]{usgsreport}
+\usepackage{usgsfonts}
+\usepackage{usgsgeo}
+\usepackage{usgsidx}
+\usepackage[tabletoc]{usgsreporta}
+
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{bm}
+\usepackage{calc}
+\usepackage{natbib}
+\usepackage{bibentry}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage[tight-spacing=true]{siunitx}
+
+\usepackage[T1]{fontenc}
+
+\makeindex
+\usepackage{setspace}
+% uncomment to make double space 
+%\doublespacing
+\usepackage{etoolbox}
+%\usepackage{verbatim}
+
+\usepackage{titlesec}
+
+
+\usepackage{hyperref}
+\hypersetup{
+    pdftitle={MODFLOW~6 Release Notes},
+    pdfauthor={MODFLOW~6 Development Team},
+    pdfsubject={MODFLOW~6 Release Notes},
+    pdfkeywords={MODFLOW, groundwater model, simulation},
+    bookmarksnumbered=true,     
+    bookmarksopen=true,         
+    bookmarksopenlevel=1,       
+    colorlinks=true,
+    allcolors={blue},          
+    pdfstartview=Fit,           
+    pdfpagemode=UseOutlines,
+    pdfpagelayout=TwoPageRight
+}
+
+
+\graphicspath{{./Figures/}}
+\input{../version.tex}
+
+
+\renewcommand{\cooperator}
+{the \textusgs\ Water Availability and Use Science Program}
+\renewcommand{\reporttitle}
+{MODFLOW~6 Release Notes}
+\renewcommand{\coverphoto}{coverimage.jpg}
+\renewcommand{\GSphotocredit}{Binary computer code illustration.}
+\renewcommand{\reportseries}{}
+\renewcommand{\reportnumber}{}
+\renewcommand{\reportyear}{2017}
+\ifdef{\reportversion}{\renewcommand{\reportversion}{\currentmodflowversion}}{}
+\renewcommand{\theauthors}{MODFLOW~6 Development Team}
+\renewcommand{\thetitlepageauthors}{\theauthors}
+%\renewcommand{\theauthorslastfirst}{}
+\renewcommand{\reportcitingtheauthors}{MODFLOW~6 Development Team}
+\renewcommand{\colophonmoreinfo}{}
+\renewcommand{\reportbodypages}{}
+\urlstyle{rm}
+\renewcommand{\reportwebsiteroot}{https://doi.org/10.5066/}
+\renewcommand{\reportwebsiteremainder}{F76Q1VQV}
+%\renewcommand{\doisecretary}{RYAN K. ZINKE}
+%\renewcommand{\usgsdirector}{William H. Werkheiser}
+%\ifdef{\usgsdirectortitle}{\renewcommand{\usgsdirectortitle}{Acting Director}}{}
+\ifdef{\usgsissn}{\renewcommand{\usgsissn}{}}{}
+\renewcommand{\theconventions}{}
+\definecolor{coverbar}{RGB}{32, 18, 88}
+\renewcommand{\bannercolor}{\color{coverbar}}
+%\renewcommand{\thePSC}{the MODFLOW~6 Development Team}
+%\renewcommand{\theeditor}{Christian D. Langevin}
+%\renewcommand{\theillustrator}{None}
+%\renewcommand{\thefirsttypesetter}{Joseph D. Hughes}
+%\renewcommand{\thesecondtypesetter}{Cian Dawson}
+\renewcommand{\reportrefname}{References Cited}
+
+\makeatletter
+\newcommand{\customlabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{}
+}
+
+\newcommand{\customcolophon}{
+Publishing support provided by the U.S. Geological Survey \\
+\theauthors
+\newline \newline
+For information concerning this publication, please contact:
+\newline \newline
+Integrated Modeling and Prediction Division \\ U.S. Geological Survey \\ Mail Stop 411 \\ 12201 Sunrise Valley Drive \\ Reston, VA 20192 \\
+https://www.usgs.gov/mission-areas/water-resources
+}
+
+\renewcommand{\reportrefname}{References Cited}
+\newcommand{\inreferences}{%
+\renewcommand{\theequation}{R--\arabic{equation}}%
+\setcounter{equation}{0}%
+\renewcommand{\thefigure}{R--\arabic{figure}}%
+\setcounter{figure}{0}%
+\renewcommand{\thetable}{R--\arabic{table}}%
+\setcounter{table}{0}%
+\renewcommand{\thepage}{R--\arabic{page}}%
+\setcounter{page}{1}%
+}
+
+\newcounter{appendixno}
+\setcounter{appendixno}{0}
+\newcommand{\inappendix}{%
+\addtocounter{appendixno}{1}%
+\renewcommand{\theequation}{\Alph{appendixno}--\arabic{equation}}%
+\setcounter{equation}{0}%
+\renewcommand{\thefigure}{\Alph{appendixno}--\arabic{figure}}%
+\setcounter{figure}{0}%
+\renewcommand{\thetable}{\Alph{appendixno}--\arabic{table}}%
+\setcounter{table}{0}%
+\renewcommand{\thepage}{\Alph{appendixno}--\arabic{page}}%
+\setcounter{page}{1}%
+}
+
+\nobibliography*
+
+\begin{document}
+
+%\makefrontcover
+\ifdef{\makefrontcoveralt}{\makefrontcoveralt}{\makefrontcover}
+
+%\makefrontmatter
+%\maketoc
+\ifdef{\makefrontmatterabv}{\makefrontmatterabv}{\makefrontmatter}
+
+\onecolumn
+\pagestyle{body}
+\RaggedRight
+\hbadness=10000
+\pagestyle{body}
+\setlength{\parindent}{1.5pc}
+
+% -------------------------------------------------
+\section{Introduction}
+This document describes MODFLOW~6 Version \modflowversion.  This distribution is packaged for personal computers using modern versions of the Microsoft Windows, Macintosh, and Linux operating systems, although the programs included in the distribution may run on older operating system versions.  The binary executable files in the distribution should run on most personal computers.
+
+Version numbers for MODFLOW~6 follow a major.minor.revision format.  The major number is increased when there are substantial new changes that may break backward compatibility.  The minor number is increased when important, but relatively minor new functionality is added.  The revision number is incremented when errors are corrected in either the program or input files.
+
+MODFLOW~6 is tested with a large number of example problems, and new capabilities are thoroughly tested as they are integrated into the program.  Additional testing can sometimes reveal errors in the program.  These errors are fixed as soon as possible and made available in a subsequent release.  Every effort is made to maintain backward compatibility of the format for MODFLOW~6 input files; however, this goal is not always possible, especially for newer packages and models.  Changes to the program to add new functionality, correct errors, or alter the format for an input file are summarized in this release notes document.
+
+
+% -------------------------------------------------
+\section{Release History}
+A list of all previous MODFLOW 6 releases is shown in table \ref{tab:releases}.  Changes introduced in previous releases are described in Appendix~\ref{app:A}.
+
+\begin{table}[h]
+\begin{center}
+\caption{List of MODFLOW 6 Releases}
+\small 
+\begin{tabular*}{13cm}{cll}
+\hline
+\hline
+\textbf{MODFLOW Version} & \textbf{Date} & \textbf{Digital Object Identifier}\\
+\hline
+6.0.0 & August 11, 2017 & \url{https://doi.org/10.5066/F76Q1VQV} \\
+6.0.1 & September 28, 2017 & same as above \\
+6.0.2 & February 23, 2018 & same as above \\
+6.0.3 & August 9, 2018 & same as above \\
+6.0.4 & March 7, 2019 & same as above \\
+6.1.0 & December 12, 2019 & same as above \\
+6.1.1 & June 12, 2020 & same as above \\
+6.2.0 & October 20, 2020 & same as above \\
+6.2.1 & February 18, 2021 & same as above \\
+6.2.2 & July 30, 2021 & same as above \\
+6.3.0 & March 4, 2022 & \url{https://doi.org/10.5066/P97FFF9M} \\
+6.4.0 & November 30, 2022 & \url{https://doi.org/10.5066/P9FL1JCC} \\
+6.4.1 & December 9, 2022 & \url{https://doi.org/10.5066/P9FL1JCC} \\
+6.4.2 & June 28, 2023 & \url{https://doi.org/10.5066/P9FL1JCC} \\
+6.4.3 & February 7, 2024 & \url{https://doi.org/10.5066/P9FL1JCC} \\
+6.4.4 & February 13, 2024 & \url{https://doi.org/10.5066/P9FL1JCC} \\
+6.5.0 & May 23, 2024 & \url{https://doi.org/10.5066/P13COJJM} \\
+6.6.0 & December 19, 2024 & \url{https://doi.org/10.5066/P1DXFBUR} \\
+6.6.1 & February 7, 2025 & \url{https://doi.org/10.5066/P1DXFBUR} \\
+6.6.2 & May 12, 2025 & \url{https://doi.org/10.5066/P1DXFBUR} \\
+\hline
+\label{tab:releases}
+\end{tabular*}
+\end{center}
+\normalsize
+\end{table}
+
+
+% -------------------------------------------------
+\section{Changes Introduced in this Release}
+This section describes changes introduced into MODFLOW~6 for the current release.  These changes may substantially affect users.
+
+\input{develop.tex}
+
+% -------------------------------------------------
+\section{Known Issues and Incompatibilities}
+This section describes known issues with this release of MODFLOW~6.  
+
+\begin{enumerate}
+
+\item
+The READARRAY utility is used by some packages to read arrays of numeric values provided by the user.  The READARRAY utility has an IPRN option (as described in the MODFLOW 6 Description of Input and Output), which will cause the array to be written to the model listing file.  Support for the IPRN option has been removed for some packages and will ultimately be removed for all packages.  A new option, called ``EXPORT\_ARRAY\_ASCII'' has been implemented for some packages to support writing of gridded data to external text files.  This option has been implemented to replace the IPRN functionality.
+
+\item
+The capability to use Unsaturated Zone Flow (UZF) routing beneath lakes and streams has not been implemented.
+
+\item
+For the Groundwater Transport (GWT) Model, the decay and sorption processes do not apply to the LKT, SFT, MWT and UZT Packages.
+
+\item
+The GWT and GWE Models do not work with the CSUB Package of the GWF Model.  
+
+\item
+The GWT-GWT Exchange requires that both GWF Models are run concurrently in the same simulation.  There is not an option to read GWF-GWF flows from a previous simulation.  Likewise, the GWE-GWE Exchange also requires that both of the corresponding GWF Models are run concurrently in the same simulation.
+
+\item
+The Buoyancy (BUY) Package of the GWF Model cannot be used when the XT3D option is activated for the Node Property Flow (NPF) Package.
+
+\item
+If a GWF-GWF Exchange is activated with the XT3D option, then the two connected GWF Models cannot have BUY Packages active.
+
+\item
+The Time-Variable Hydraulic Conductivity (TVK) Package is incompatible with the Horizontal Flow Barrier (HFB) Package if the TVK Package is used to change hydraulic properties of cells near horizontal flow barriers.
+
+\item
+If a GWF-GWF Exchange is active, then neither of the connected GWF Models can have an active Viscosity (VSC) Package.
+
+\item 
+If a GWT-GWT or GWE-GWE Exchange is active, then constant concentration (CNC) or constant temperature (CTP) conditions should not be assigned on the interface between the two connected models because the budget reported in the listing file will contain errors.  
+
+\end{enumerate}
+
+In addition to the issues shown here, a comprehensive and up-to-date list is available under the issues tab at \url{https://github.com/MODFLOW-ORG/modflow6}.
+
+
+% -------------------------------------------------
+\section{Distribution File}
+The MODFLOW~6 distribution is provided in the form of a compressed zip file.  Distributions are available for several different operating systems, including Windows, Mac, and Linux.  Distributions are marked with an operating system tag, called ``ostag''.  Values for ``ostag'' include ``win64'', ``mac'', and ``linux'', for example.  Distribution files for the current release are labeled as \texttt{\modflowversion\_[ostag].zip}.  Thus, the distribution file for Windows for the current release is \texttt{\modflowversion\_win64.zip}.
+
+It is recommended that no user files are kept in the release directory.  If you do plan to put your own files in the release directory, do so only by creating additional subdirectories.
+
+% -------------------------------------------------
+\section{Installation and Execution}
+There is no installation of MODFLOW~6 other than the requirement that \texttt{\modflowversion\_[ostag].zip} must be unzipped into a location where it can be accessed.  
+
+To make the executable versions of MODFLOW~6 accessible from any directory, the directory containing the executables should be included in the PATH environment variable.  Also, if a prior release of MODFLOW~6 is installed on your system, the directory containing the executables for the prior release should be removed from the PATH environment variable.
+
+As an alternative, the executable file (named ``\texttt{mf6.exe}'' on Windows or ``\texttt{mf6}'' on Mac and Linux) in the \modflowversion\_[ostag]/bin directory can be copied into a directory already included in the PATH environment variable.
+
+To run MODFLOW~6, simply type \texttt{mf6} in a terminal window.  The current working directory must be set to a location where the model input files are located.  Upon execution, MODFLOW~6 will immediately look for a file with the name \texttt{mfsim.nam} in the current working directory, and will terminate with an error if it does not find this file.
+
+% -------------------------------------------------
+\section{Compiling MODFLOW~6}
+MODFLOW~6 has been compiled using Intel Fortran and GNU Fortran on Windows, macOS, and several Linux operating systems. All MODFLOW~6 distributions are currently compiled with Intel Fortran. Because the program uses relatively new Fortran functionality, recent versions of the compilers may be required for successful compilation. MODFLOW~6 has been successfully compiled with the latest versions of the Intel toolchain.
+
+MODFLOW~6 is currently tested with gfortran 11-13 on Linux, macOS, and Windows. The gfortran version can be queried with ``\verb|gfortran --version|''.  Intel Fortran Compiler Classic version 2022.3.0 is currently tested on all three platforms. Some 2021 versions have also been reported compatible. MODFLOW~6 is also compatible with the next-generation Intel Fortran Compiler `ifx`; however, additional testing is underway.
+
+Instructions for compiling the parallel version of MODFLOW~6 are available through a dedicated page on the \href{https://github.com/MODFLOW-ORG/modflow6/wiki/Parallel-MODFLOW-User-Guide}{MODFLOW~6 repository}.
+
+There are several options for building MODFLOW, as described below.
+
+\begin{itemize}
+
+\item Meson is the recommended build tool for MODFLOW~6.  Refer to the \href{https://github.com/MODFLOW-ORG/modflow6/blob/develop/DEVELOPER.md#building}{detailed compilation instructions} for more information.
+
+\item The distribution includes Microsoft Visual Studio solution and project files for compiling MODFLOW~6 on Windows using the Intel Fortran Compiler Classic.  The files have been used successfully with recent versions of Microsoft Visual Studio Community 2019 and the Intel Fortran Compiler Classic.
+
+\item This distribution also includes a makefile for compiling MODFLOW~6 with \texttt{gfortran}.  The makefile is contained in the \texttt{make} folder.
+
+\item For those familiar with Python, the \href{https://github.com/modflowpy/pymake}{pymake package} can also be used to compile MODFLOW~6.
+
+\end{itemize}
+
+% -------------------------------------------------
+\section{System Requirements}
+MODFLOW~6 is written in Fortran.  It uses features from the 95, 2003, and 2008 language.  The code has been used on UNIX-based computers and personal computers running various forms of the Microsoft Windows operating system.
+
+% -------------------------------------------------
+\section{Testing}
+The examples distributed with MODFLOW~6 can be run on Windows by navigating to the examples folder and executing the ``\texttt{run.bat}'' batch files within each example folder.  Alternatively, there is a ``\texttt{runall.bat}'' batch file under the examples folder that will run all of the test problems.  For Linux and Mac distributions, equivalent shell scripts (\texttt{run.sh} and \texttt{runall.sh}) are included.
+
+% -------------------------------------------------
+\section{MODFLOW~6 Documentation}
+Details on the numerical methods and the underlying theory for MODFLOW~6 are described in the following reports and papers:
+
+\begin{itemize}
+
+\item \bibentry{modflow6framework}
+
+\item \bibentry{modflow6gwf}
+
+\item \bibentry{modflow6xt3d}
+
+\item \bibentry{langevin2020hydraulic}
+
+\item \bibentry{morway2021}
+
+\item \bibentry{modflow6api}
+
+\item \bibentry{modflow6gwt}
+
+\item \bibentry{modflow6csub}
+
+\item \bibentry{langevin2024}
+
+\item \bibentry{larsen2024}
+
+\item \bibentry{provost2025}
+
+\item \bibentry{morway2025}
+
+\end{itemize}
+ 
+\noindent Description of the MODFLOW~6 input and output is included in this distribution in the ``doc'' folder as mf6io.pdf.
+
+% -------------------------------------------------
+% if deprecation information exists, then include the deprecation table
+\IfFileExists{./deprecations.tex}{\input{./deprecations.tex}}{}
+
+% -------------------------------------------------
+% if runtime information exists, then include the run time comparison table
+\IfFileExists{./run-time-comparison.tex}{\input{./run-time-comparison.tex}}{}
+
+% -------------------------------------------------
+\section{Disclaimer and Notices}
+
+This software has been approved for release by the U.S. Geological Survey (USGS). Although the software has been subjected to rigorous review, the USGS reserves the right to update the software as needed pursuant to further analysis and review. No warranty, expressed or implied, is made by the USGS or the U.S. Government as to the functionality of the software and related material nor shall the fact of release constitute any such warranty. Furthermore, the software is released on condition that neither the USGS nor the U.S. Government shall be held liable for any damages resulting from its authorized or unauthorized use. Also refer to the USGS Water Resources Software User Rights Notice for complete use, copyright, and distribution information.
+
+Notices related to this software are as follows:
+\begin{itemize}
+\item This software is a product of the U.S. Geological Survey, which is part of the U.S. Government.
+
+\item This software is freely distributed. There is no fee to download and (or) use this software.
+
+\item Users do not need a license or permission from the USGS to use this software. Users can download and install as many copies of the software as they need.
+
+\item As a work of the United States Government, this USGS product is in the public domain within the United States. You can copy, modify, distribute, and perform the work, even for commercial purposes, all without asking permission. Additionally, USGS waives copyright and related rights in the work worldwide through CC0 1.0 Universal Public Domain Dedication (\url{https://creativecommons.org/publicdomain/zero/1.0/}).
+\end{itemize}
+
+
+\newpage
+\ifx\usgsdirector\undefined
+\addcontentsline{toc}{section}{\hspace{1.5em}\bibname}
+\else
+\inreferences
+\REFSECTION
+\fi
+\input{bibliography.tex}
+
+
+\newpage
+\inappendix
+\SECTION{Appendix A. Changes Introduced in Previous Versions}
+\customlabel{app:A}{A}
+\input{./appendixA.tex}
+
+
+\justifying
+\vspace*{\fill}
+\clearpage
+\pagestyle{backofreport}
+\makebackcover
+\end{document}

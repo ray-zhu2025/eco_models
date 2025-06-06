@@ -1,0 +1,7 @@
+BEGIN OPTIONS
+END OPTIONS
+
+BEGIN PACKAGEDATA
+  GWFBUDGET FILEIN ../flow/mygwfmodel.bud
+  GWFHEAD FILEIN   ../flow/mygwfmodel.hds
+END PACKAGEDATA

@@ -1,0 +1,31 @@
+Source and Sink Mixing (SSM) Package information is read from the file that is specified by ``SSM6'' as the file type.  Only one SSM Package can be specified for a GWT model.  The SSM Package is required if the flow model has any stress packages.
+
+The SSM Package is used to add or remove solute mass from GWT model cells based on inflows and outflows from GWF stress packages.  If a GWF stress package provides flow into a model cell, that flow can be assigned a user-specified concentration.  If a GWT stress package removes water from a model cell, the concentration of that water is typically the concentration of the cell, but a ``MIXED'' option is also included so that the user can specify the concentration of that withdrawn water.  This may be useful for representing evapotranspiration, for example.  There are several different ways for the user to specify the concentrations.  
+
+\begin{itemize}
+\item The default condition is that sources have a concentration of zero and sinks withdraw water at the calculated concentration of the cell.  This default condition is assigned to any GWF stress package that is not included in a SOURCES block or FILEINPUT block.
+\item A second option is to assign auxiliary variables in the GWF model and include a concentration for each stress boundary.  In this case, the user provides the name of the package and the name of the auxiliary variable containing concentration values for each boundary.  As described below for srctype, there are multiple options for defining this behavior.
+\item  A third option is to prepare an input file using the \hyperref[sec:spc]{Stress Package Component (SPC6) utility} for any desired GWF stress package.  This SPC6 file allows users to change concentrations by stress period, or to use the time-series option to interpolate concentrations by time step.  This third option was introduced in MODFLOW version 6.3.0.  Information for this approach is entered in an optional FILEINPUT block below.  The SPC6 input file supports list-based concentration input for most corresponding GWF stress packages, but also supports a READASARRAYS array-based input format if a corresponding GWF recharge or evapotranspiration package uses the READASARRAYS option.
+\end{itemize}
+
+\noindent The auxiliary method and the SPC6 file input method can both be used for a GWT model, but only one approach can be assigned per GWF stress package.   If a flow package specified in the SOURCES or FILEINPUT blocks is also represented using an advanced transport package (SFT, LKT, MWT, or UZT), then the advanced transport package will override SSM calculations for that package.
+
+\vspace{5mm}
+\subsubsection{Structure of Blocks}
+\lstinputlisting[style=blockdefinition]{./mf6ivar/tex/gwt-ssm-options.dat}
+\lstinputlisting[style=blockdefinition]{./mf6ivar/tex/gwt-ssm-sources.dat}
+\vspace{5mm}
+\noindent \textit{FILEINPUT BLOCK IS OPTIONAL}
+\lstinputlisting[style=blockdefinition]{./mf6ivar/tex/gwt-ssm-fileinput.dat}
+
+\vspace{5mm}
+\subsubsection{Explanation of Variables}
+\begin{description}
+\input{./mf6ivar/tex/gwt-ssm-desc.tex}
+\end{description}
+
+\vspace{5mm}
+\subsubsection{Example Input File}
+\lstinputlisting[style=inputfile]{./mf6ivar/examples/gwt-ssm-example.dat}
+
+% when obs are ready, they should go here
