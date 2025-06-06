@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  wrf:
+    build:
+      context: ../..
+      dockerfile: deploy/wrf/Dockerfile
+    volumes:
+      - ./data:/wrf/data
+    environment:
+      - TZ=UTC
+    working_dir: /wrf
+    command: /bin/bash 
