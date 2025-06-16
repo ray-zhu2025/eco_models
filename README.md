@@ -5,13 +5,13 @@
 ### 1. 全球天气预报模型
 
 | 模型名称 | 开发机构 | 开放类型 | 操作系统 | 编程语言 | 代码链接 |
-|---------|---------|----------|----------|----------|----------|
+|---------|---------|:---------|----------|----------|----------|
 | [FourCastNet](https://arxiv.org/abs/2202.11214) | NVIDIA | 开源 | Linux/Ubuntu 20.04+ | Python, CUDA | [GitHub](https://github.com/NVlabs/FourCastNet) |
-| [Pangu-Weather](https://arxiv.org/abs/2211.02556) | 华为 | 开源 | CentOS/Ubuntu 18.04+ | Python, PyTorch | [GitHub](https://github.com/198808xc/Pangu-Weather) |
+| [盘古](https://arxiv.org/abs/2211.02556) | 华为 | 开源 | CentOS/Ubuntu 18.04+ | Python, PyTorch | [GitHub](https://github.com/198808xc/Pangu-Weather) |
 | [GraphCast](https://arxiv.org/abs/2212.12794) | Google/DeepMind | 开源 | Ubuntu 20.04+ | Python, JAX | [GitHub](https://github.com/google-deepmind/graphcast) |
 | [ClimaX](https://arxiv.org/abs/2301.10343) | Microsoft | 开源 | Ubuntu 20.04+ | Python, PyTorch | [GitHub](https://github.com/microsoft/ClimaX) |
-| [FengWu](https://arxiv.org/abs/2304.02948) | 上海人工智能实验室 | 开源 | Ubuntu 20.04+ | Python, PyTorch | [GitHub](https://github.com/OpenEarthLab/FengWu) |
-| [FuXi](https://arxiv.org/abs/2408.05472) | 复旦大学 | 开源 | Ubuntu 20.04+ | Python, PyTorch | [GitHub](https://github.com/tpys/FuXi) |
+| [风乌](https://arxiv.org/abs/2304.02948) | 上海人工智能实验室 | 开源 | Ubuntu 20.04+ | Python, PyTorch | [GitHub](https://github.com/OpenEarthLab/FengWu) |
+| [伏羲](https://arxiv.org/abs/2408.05472) | 复旦大学 | 开源 | Ubuntu 20.04+ | Python, PyTorch | [GitHub](https://github.com/tpys/FuXi) |
 | [Aurora](https://www.nature.com/articles/s41586-025-09005-y) | Microsoft | 开源 | Ubuntu 20.04+ | Python, JAX | [GitHub](https://github.com/microsoft/aurora) |
 
 ### 2. 降水预报模型
