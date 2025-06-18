@@ -4,52 +4,52 @@
 
 ### 1. 全球天气预报模型
 
-| 模型名称 | 开发机构 | 开放类型 | 操作系统 | 编程语言 | 代码链接 |
-|---------|---------|:---------|----------|----------|----------|
-| [FourCastNet](https://arxiv.org/abs/2202.11214) | NVIDIA | 开源 | Linux/Ubuntu 20.04+ | Python, CUDA | [GitHub](https://github.com/NVlabs/FourCastNet) |
-| [盘古](https://arxiv.org/abs/2211.02556) | 华为 | 开源 | CentOS/Ubuntu 18.04+ | Python, PyTorch | [GitHub](https://github.com/198808xc/Pangu-Weather) |
-| [GraphCast](https://arxiv.org/abs/2212.12794) | Google/DeepMind | 开源 | Ubuntu 20.04+ | Python, JAX | [GitHub](https://github.com/google-deepmind/graphcast) |
-| [ClimaX](https://arxiv.org/abs/2301.10343) | Microsoft | 开源 | Ubuntu 20.04+ | Python, PyTorch | [GitHub](https://github.com/microsoft/ClimaX) |
-| [风乌](https://arxiv.org/abs/2304.02948) | 上海人工智能实验室 | 开源 | Ubuntu 20.04+ | Python, PyTorch | [GitHub](https://github.com/OpenEarthLab/FengWu) |
-| [伏羲](https://arxiv.org/abs/2408.05472) | 复旦大学 | 开源 | Ubuntu 20.04+ | Python, PyTorch | [GitHub](https://github.com/tpys/FuXi) |
-| [Aurora](https://www.nature.com/articles/s41586-025-09005-y) | Microsoft | 开源 | Ubuntu 20.04+ | Python, JAX | [GitHub](https://github.com/microsoft/aurora) |
+| 模型名称 | 开发机构 | 开放类型 | 编程语言 | 数据源 | 核心算法架构 | 代码链接 |
+|---------|---------|:---------|----------|--------|------------|----------|
+| [FourCastNet](https://arxiv.org/abs/2202.11214) | NVIDIA | 开源 | Python, CUDA | ERA5（40年） | ViT + 适应性傅里叶神经算子（AFNO） | [GitHub](https://github.com/NVlabs/FourCastNet) |
+| [盘古](https://arxiv.org/abs/2211.02556) | 华为 | 开源 | Python, PyTorch | ERA5（39年） | Transformer | [GitHub](https://github.com/198808xc/Pangu-Weather) |
+| [GraphCast](https://arxiv.org/abs/2212.12794) | Google/DeepMind | 开源 | Python, JAX | ERA5（39年） | 图神经网络（GNN） | [GitHub](https://github.com/google-deepmind/graphcast) |
+| [ClimaX](https://arxiv.org/abs/2301.10343) | Microsoft | 开源 | Python, PyTorch | ERA5, CMIP6 | Transformer | [GitHub](https://github.com/microsoft/ClimaX) |
+| [风乌](https://arxiv.org/abs/2304.02948) | 上海人工智能实验室 | 开源 | Python, PyTorch | ERA5（39年） | Transformer | [GitHub](https://github.com/OpenEarthLab/FengWu) |
+| [伏羲](https://arxiv.org/abs/2408.05472) | 复旦大学 | 开源 | Python, PyTorch | ERA5（39年） | U-Transformer + Cascade级联 | [GitHub](https://github.com/tpys/FuXi) |
+| [Aurora](https://www.nature.com/articles/s41586-025-09005-y) | Microsoft | 开源 | Python, JAX | ERA5, MARS | Transformer | [GitHub](https://github.com/microsoft/aurora) |
 
 ### 2. 降水预报模型
 
-| 模型名称 | 开发机构 | 开放类型 | 操作系统 | 编程语言 | 代码链接 |
-|---------|---------|----------|----------|----------|----------|
-| [MetNet](https://arxiv.org/abs/2003.12140) | Google | 开源 | Ubuntu 18.04+ | Python, TensorFlow | [GitHub](https://github.com/google-research/metnet) |
-| [DeepRain](https://arxiv.org/abs/1711.02316) | - | 开源 | Ubuntu 18.04+ | Python, PyTorch | [GitHub](https://github.com/thgnaedi/DeepRain) |
-| [DeepStorm](https://www.nature.com/articles/s41586-018-0001-6) | - | 开源 | Ubuntu 18.04+ | Python, TensorFlow | [GitHub](https://github.com/EliasNehme/Deep-STORM) |
+| 模型名称 | 开发机构 | 开放类型 | 编程语言 | 数据源 | 核心算法架构 | 代码链接 |
+|---------|---------|----------|----------|--------|------------|----------|
+| [MetNet](https://arxiv.org/abs/2003.12140) | Google | 开源 | Python, TensorFlow | MRMS, GOES-16 | U-Net | [GitHub](https://github.com/google-research/metnet) |
+| [DeepRain](https://arxiv.org/abs/1711.02316) | 韩国科学技术信息研究院 | 开源 | Python, PyTorch | 雷达数据 | CNN | 
+| [NowcastNet](https://www.nature.com/articles/s41586-023-06184-4) | 清华大学 | 开源 | Python, PyTorch | 雷达观测（6年） | U-Net | [GitHub](https://github.com/google-deepmind/deepmind-research/tree/master/nowcasting) |
 
 ### 3. 环境模型
 
 #### 3.1 大气环境模型
-| 模型名称 | 类型 | 开放类型 | 操作系统 | 编程语言 | 代码/资源链接 |
-|---------|------|----------|----------|----------|--------------|
-| [CMAQ](https://www.epa.gov/cmaq) | 大气污染 | 开源 | CentOS/RHEL 7+, Ubuntu 18.04+ | Fortran | [GitHub](https://github.com/USEPA/CMAQ) |
-| [CALPUFF](https://www.epa.gov/scram/air-quality-dispersion-modeling-alternative-models#calpuff) | 大气污染 | 商业 | RHEL/CentOS 7+, Windows | Fortran | [SRC](https://www.src.com/calpuff/) |
-| [AERMOD](https://www.epa.gov/scram/air-quality-dispersion-modeling-preferred-and-recommended-models#aermod) | 大气污染 | 商业 | RHEL/CentOS 7+, Windows | Fortran | [EPA](https://www.epa.gov/scram) |
-| [WRF-Chem](https://www2.mmm.ucar.edu/wrf/users/) | 大气化学 | 开源 | CentOS/RHEL 7+, Ubuntu 18.04+ | Fortran, C | [官方下载](https://www.acom.ucar.edu/wrf-chem/download.shtml) |
-| [CAMx](https://www.camx.com/) | 大气化学 | 商业 | RHEL/CentOS 7+, Windows | Fortran | [官方下载](https://www.camx.com/download/source/) |
-| [GEOS-Chem](http://wiki.seas.harvard.edu/geos-chem/index.php/Main_Page) | 大气化学 | 开源 | CentOS/RHEL 7+, Ubuntu 18.04+ | Fortran | [GitHub](https://github.com/geoschem/geos-chem) |
-| [EPICC](https://earthlab.iap.ac.cn/) | 大气化学 | 免费申请 | CentOS/RHEL 7+ | Fortran | [官方下载](https://earthlab.iap.ac.cn/resdown/index.html) |
+| 模型名称 | 开发机构 | 类型 | 开放类型 | 编程语言 | 代码/资源链接 |
+|---------|---------|------|----------|----------|--------------|
+| [CMAQ](https://www.epa.gov/cmaq) | 美国环保署 | 大气污染 | 开源 | Fortran | [GitHub](https://github.com/USEPA/CMAQ) |
+| [CALPUFF](https://www.epa.gov/scram/air-quality-dispersion-modeling-alternative-models#calpuff) | 美国环保署 | 大气污染 | 商业 | Fortran | [SRC](https://www.src.com/calpuff/) |
+| [AERMOD](https://www.epa.gov/scram/air-quality-dispersion-modeling-preferred-and-recommended-models#aermod) | 美国环保署 | 大气污染 | 商业 | Fortran | [EPA](https://www.epa.gov/scram) |
+| [WRF-Chem](https://www2.mmm.ucar.edu/wrf/users/) | 美国国家大气研究中心 | 大气化学 | 开源 | Fortran, C | [官方下载](https://www.acom.ucar.edu/wrf-chem/download.shtml) |
+| [CAMx](https://www.camx.com/) | ENVIRON | 大气化学 | 商业 | Fortran | [官方下载](https://www.camx.com/download/source/) |
+| [GEOS-Chem](http://wiki.seas.harvard.edu/geos-chem/index.php/Main_Page) | 哈佛大学 | 大气化学 | 开源 | Fortran | [GitHub](https://github.com/geoschem/geos-chem) |
+| [EPICC](https://earthlab.iap.ac.cn/) | 中科院大气物理研究所 | 大气化学 | 免费申请 | Fortran | [官方下载](https://earthlab.iap.ac.cn/resdown/index.html) |
 
 #### 3.2 水环境模型
-| 模型名称 | 类型 | 开放类型 | 操作系统 | 编程语言 | 代码/资源链接 |
-|---------|------|----------|----------|----------|--------------|
-| [Visual MODFLOW Flex](https://www.waterloohydrogeologic.com/visual-modflow-flex/) | 地下水 | 商业 | Windows | C#, Fortran | [官方下载](https://www.waterloohydrogeologic.com/visual-modflow-flex/) |
-| [MODFLOW 6](https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model) | 地下水 | 开源 | RHEL/CentOS 7+, Ubuntu 18.04+, Windows, Mac | Fortran | [GitHub](https://github.com/MODFLOW-USGS/modflow6) |
-| [GMS](https://www.aquaveo.com/software/gms-groundwater-modeling-system-introduction) | 地下水 | 商业 | Windows | C++, Python | [官方下载](https://www.aquaveo.com/downloads-gms) |
-| [TOUGH](https://tough.lbl.gov/) | 多相流 | 商业 | RHEL/CentOS 7+, Windows | Fortran | [官方下载](https://tough.lbl.gov/licensing-download/) |
-| [HYDRUS](https://www.pc-progress.com/en/Default.aspx?hydrus-3d) | 土壤水 | 商业 | Windows | Fortran, C++ | [官方下载](https://www.pc-progress.com/en/Default.aspx?downloads) |
-| [WASP](https://www.epa.gov/hydrowq/water-quality-analysis-simulation-program-wasp) | 水质模拟 | 开源 | Ubuntu 18.04+, Windows, Mac | Fortran | [官方下载](https://www.epa.gov/hydrowq/wasp8-download) |
+| 模型名称 | 开发机构 | 类型 | 开放类型 | 编程语言 | 代码/资源链接 |
+|---------|---------|------|----------|----------|--------------|
+| [Visual MODFLOW Flex](https://www.waterloohydrogeologic.com/visual-modflow-flex/) | Waterloo Hydrogeologic | 地下水 | 商业 | C#, Fortran | [官方下载](https://www.waterloohydrogeologic.com/visual-modflow-flex/) |
+| [MODFLOW 6](https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model) | 美国地质调查局 | 地下水 | 开源 | Fortran | [GitHub](https://github.com/MODFLOW-USGS/modflow6) |
+| [GMS](https://www.aquaveo.com/software/gms-groundwater-modeling-system-introduction) | Aquaveo | 地下水 | 商业 | C++, Python | [官方下载](https://www.aquaveo.com/downloads-gms) |
+| [TOUGH](https://tough.lbl.gov/) | 劳伦斯伯克利国家实验室 | 多相流 | 商业 | Fortran | [官方下载](https://tough.lbl.gov/licensing-download/) |
+| [HYDRUS](https://www.pc-progress.com/en/Default.aspx?hydrus-3d) | PC-Progress | 土壤水 | 商业 | Fortran, C++ | [官方下载](https://www.pc-progress.com/en/Default.aspx?downloads) |
+| [WASP](https://www.epa.gov/hydrowq/water-quality-analysis-simulation-program-wasp) | 美国环保署 | 水质模拟 | 开源 | Fortran | [官方下载](https://www.epa.gov/hydrowq/wasp8-download) |
 
 #### 3.3 社会经济模型
-| 模型名称 | 类型 | 开放类型 | 操作系统 | 编程语言 | 代码/资源链接 |
-|---------|------|----------|----------|----------|--------------|
-| [LEAP](https://leap.sei.org/) | 综合评估 | 商业 | Windows | C#, .NET | [官方下载](https://leap.sei.org/default.asp?action=download) |
-| [GCAM](https://github.com/JGCRI/gcam-core) | 综合评估 | 开源 | Linux/Ubuntu 18.04+, Windows, Mac | C++, R | [GitHub](https://github.com/JGCRI/gcam-core) |
+| 模型名称 | 开发机构 | 类型 | 开放类型 | 编程语言 | 代码/资源链接 |
+|---------|---------|------|----------|----------|--------------|
+| [LEAP](https://leap.sei.org/) | 斯德哥尔摩环境研究所 | 综合评估 | 商业 | C#, .NET | [官方下载](https://leap.sei.org/default.asp?action=download) |
+| [GCAM](https://github.com/JGCRI/gcam-core) | 联合全球变化研究所 | 综合评估 | 开源 | C++, R | [GitHub](https://github.com/JGCRI/gcam-core) |
 
 
 ## 3. 技术方案总结
