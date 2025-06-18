@@ -183,3 +183,4 @@ Java版本选择：
 
 - [AI-for-Earth-Paper-List](https://github.com/OpenEarthLab/AI-for-Earth-Paper-List) - OpenEarthLab整理的AI地球科学论文列表
 - [Awesome-AI-for-Atmosphere-and-Ocean](https://github.com/XiongWeiTHU/Awesome-AI-for-Atmosphere-and-Ocean) - 清华大学整理的AI大气和海洋科学论文列表
+- [AI气象大模型信息对比与分析](https://mp.weixin.qq.com/s?__biz=MzA5OTQ5Njk5Nw==&mid=2247491456&idx=1&sn=e1b20651efd5fecec1b146fdb3bc61b2&chksm=912ec6bf38b28f00fe1eb26be80c711ea099317c6d43c6b7f1f3fef8d33e3ce59969e9c822f1) - AI气象大模型技术分析文章
