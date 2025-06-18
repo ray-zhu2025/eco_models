@@ -13,6 +13,7 @@
 | [风乌](https://arxiv.org/abs/2304.02948) | 上海人工智能实验室 | 开源 | Python, PyTorch | ERA5（39年） | Transformer | [GitHub](https://github.com/OpenEarthLab/FengWu) |
 | [伏羲](https://arxiv.org/abs/2408.05472) | 复旦大学 | 开源 | Python, PyTorch | ERA5（39年） | U-Transformer + Cascade级联 | [GitHub](https://github.com/tpys/FuXi) |
 | [Aurora](https://www.nature.com/articles/s41586-025-09005-y) | Microsoft | 开源 | Python, JAX | ERA5, MARS | Transformer | [GitHub](https://github.com/microsoft/aurora) |
+| [DLWP](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2019MS001705) | 华盛顿大学 | 开源 | Python, TensorFlow | CFS, ERA5 | CNN | [GitHub](https://github.com/jweyn/DLWP) |
 
 ### 1.2 预报能力
 
@@ -23,7 +24,7 @@
 | [GraphCast](https://arxiv.org/abs/2212.12794) | 中期（10天） | 9.75天 | 0.25°×0.25°，6h，全球 | 数据驱动 | 5个地表变量（含降水）+ 6个大气变量 |
 | [Pangu-Weather](https://arxiv.org/abs/2211.02556) | 短/中期（1h-7天） | 超过7天 | 0.25°×0.25°，6h，全球 | 数据驱动 | 4个地表变量（不含降水）+ 5个大气变量 |
 | [FourCastNet](https://arxiv.org/abs/2202.11214) | 短/中期 | 不到7天 | 0.25°×0.25°，6h，全球 | 数据驱动 | 5个地表变量（含降水）+ 4个大气变量 |
-| DLWP | 短/中期 | 不到6天 | 1.9°×1.9°，6h，全球 | 数据驱动 | 4个地表变量（不含降水） |
+| [DLWP](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2019MS001705) | 短/中期 | 不到6天 | 1.9°×1.9°，6h，全球 | 数据驱动 | 4个地表变量（不含降水） |
 
 ### 1.3 硬件需求和预测速度
 
